@@ -8,9 +8,11 @@ const PreviewPedido = ({ formData, itens, voltar, removerItem }) => {
     window.location.reload();
   };
   
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://pedidos-marica.vercel.app/api';
+  
   const enviarParaTelegram = async () => {
     try {
-      const response = await fetch('http://localhost:3001/enviar-pedido', {
+      const response = await fetch(`${API_URL}/enviar-pedido`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
